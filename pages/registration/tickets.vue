@@ -1,11 +1,17 @@
 <template>
     <div>
         <banner>
-            <template #standard>
+            <template #default>
+                <div
+                    class="hidden md:block md:w-full md:h-full"
+                    :style="bannerStyle"
+                ></div>
+            </template>
+            <template #text>
                 <core-h1 :title="$t('title')"></core-h1>
-                <i18n path="pageAbstract" tag="p" class="pageAbstract">
-                    <template #br><br /></template>
-                </i18n>
+                <p class="w-full md:w-3/4 leading-6 text-justify">
+                    {{ $t('pageAbstract') }}
+                </p>
             </template>
         </banner>
 
@@ -109,12 +115,13 @@ export default {
         CoreH1,
         I18nPageWrapper,
         Banner,
+
         LocaleLink,
         TextButton,
     },
     data() {
         return {
-            ticketsBanner: require('~/static/img/about/WebBanner.svg'),
+            ticketsBanner: require('~/static/img/about/Banner.svg'),
             ticketInfos: [
                 {
                     tag: 'earlyBird',
@@ -176,7 +183,6 @@ export default {
             return {
                 'background-image': `url(${this.ticketsBanner})`,
                 'background-repeat': 'no-repeat',
-                'background-size': 'cover',
                 'background-position': 'center',
             }
         },
