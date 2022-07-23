@@ -24,6 +24,21 @@
                     </div>
                 </div>
             </div>
+            <div class="speechForm">
+                <span class="speechForm__header">{{
+                    $t('hostHeaderTitle')
+                }}</span>
+                <div class="host--group">
+                    <div
+                        v-for="(host, j) in hosts"
+                        :key="`host-${j}`"
+                        class="host"
+                    >
+                        <img class="host__avatar" :src="host.avatar" />
+                        <span class="host__name">{{ host.name }}</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="agenda">
             <div
